@@ -8,7 +8,7 @@ namespace BLL.Models.DTO
 {
     public class AgendaDTO
     {
-        public DateTime startDate;
-        public DateTime endDate;
+        public DateTime startDate { get; set; }
+        public DateTime endDate { get; set; }
     }
 }

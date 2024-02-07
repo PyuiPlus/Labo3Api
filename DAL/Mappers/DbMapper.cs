@@ -20,7 +20,7 @@ namespace DAL.Mappers
                 firstName = reader["firstname"].ToString(),
                 lastName = reader["lastname"].ToString(),
                 phone = reader["phone"].ToString(),
-                age = Convert.ToInt32(reader["age"])
+                birthdate = Convert.ToDateTime(reader["birthdate"])
             };
         }
 

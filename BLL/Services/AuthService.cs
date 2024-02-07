@@ -37,5 +37,4 @@ namespace BLL.Services
             return null;
         }
     }
-    }
 }

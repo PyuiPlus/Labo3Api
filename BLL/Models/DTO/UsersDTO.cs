@@ -8,8 +8,8 @@ namespace BLL.Models.DTO
 {
     public class UsersDTO
     {
-        public string email;
-        public string phone;
-        public string name;
+        public string email { get; set; }
+        public string phone { get; set; }
+        public string name { get; set; }
     }
 }

@@ -8,10 +8,10 @@ namespace BLL.Models.DTO
 {
     public class ArticleDTO
     {
-        public string title;
-        public string type;
-        public decimal price;
-        public string link;
-        public string description;
+        public string title { get; set; }
+        public string type { get; set; }
+        public decimal price { get; set; }
+        public string link { get; set; }
+        public string description { get; set; }
     }
 }

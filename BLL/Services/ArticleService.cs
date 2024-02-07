@@ -3,6 +3,7 @@ using BLL.Mappers;
 using BLL.Models.DTO;
 using BLL.Models.Forms;
 using DAL.Entities;
+using DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,32 +14,39 @@ namespace BLL.Services
 {
     public class ArticleService : IArticleService
     {
-        private readonly IArticleService _articleService;
+        private readonly IArticleRepository _articleRepository;
 
-        public ArticleService(IArticleService articleService)
+        public ArticleService(IArticleRepository articleRepository)
         {
-            _articleService = articleService;
+            _articleRepository = articleRepository;
         }
 
         public ArticleDTO Create(CreateArticleForm form)
         {
 
-            return _articleService.Create(form.ToArticle()).;
+            return _articleRepository.Create(form.ToArticle()).ToArticleDTO();
         }
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            Article article = _articleRepository.GetById(id);
+
+            if (article is null)
+            {
+                return false;
+            }
+
+            return _articleRepository.Delete(article);
         }
 
         public IEnumerable<ArticleDTO> GetAll()
         {
-            throw new NotImplementedException();
+            return _articleRepository.GetAll().Select(x => x.ToArticleDTO());
         }
 
         public ArticleDTO GetById(int id)
         {
-            throw new NotImplementedException();
+            return _articleRepository.GetById(id).ToArticleDTO();
         }
 
         public bool Update(Article article)
