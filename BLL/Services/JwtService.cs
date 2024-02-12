@@ -19,7 +19,7 @@ namespace BLL.Services
         {
             _config = config;
         }
-        public JwtSecurityToken CreateToken(Users users)
+        public string CreateToken(Users users)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["jwt:secretKey"]));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -31,7 +31,7 @@ namespace BLL.Services
 
             var token = new JwtSecurityToken(claims: claims, expires: DateTime.Now.AddDays(14), signingCredentials: credentials);
 
-            return token;
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }

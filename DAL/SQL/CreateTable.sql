@@ -1,7 +1,7 @@
 CREATE TABLE Users(
 Id INT PRIMARY KEY IDENTITY,
 email VARCHAR(255),
-password VARCHAR(30),
+password VARCHAR(255),
 firstname VARCHAR(20),
 lastname VARCHAR(100),
 phone VARCHAR(15),

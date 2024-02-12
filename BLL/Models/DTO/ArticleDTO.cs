@@ -13,5 +13,6 @@ namespace BLL.Models.DTO
         public decimal price { get; set; }
         public string link { get; set; }
         public string description { get; set; }
+        public int UserId { get; set; }
     }
 }

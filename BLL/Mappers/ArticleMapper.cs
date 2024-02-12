@@ -43,7 +43,9 @@ namespace BLL.Mappers
                 type =  Enum.GetName(typeof(typeArticle),entity.type),
                 price = entity.price,
                 link = entity.link,
-                description = entity.description
+                description = entity.description,
+                UserId = entity.UsersID
+                
             };
         }
 

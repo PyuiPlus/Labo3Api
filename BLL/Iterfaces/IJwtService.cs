@@ -10,6 +10,6 @@ namespace BLL.Iterfaces
 {
     public interface IJwtService
     {
-        JwtSecurityToken CreateToken(Users user);
+        string CreateToken(Users user);
     }
 }
