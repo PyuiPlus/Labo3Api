@@ -22,6 +22,8 @@ builder.Services.AddScoped<IArticleRepository, ArticleRepository>(x => new Artic
 builder.Services.AddScoped<IArticleService, ArticleService>();
 
 builder.Services.AddScoped<IAgendaRepository, AgendaRepository>(x => new AgendaRepository(builder.Configuration.GetConnectionString("Main")));
+builder.Services.AddScoped<IAgendaService, AgendaService>();
+
 
 
 builder.Services.AddScoped<IAuthService, AuthService>();

@@ -15,9 +15,10 @@ namespace BLL.Mappers
     {
         public enum typeArticle
         {
-            Maison = 1,
-            Appartement = 2,
-            Voiture = 3
+            Other = 1,
+            House = 2,
+            Car = 3,
+            Apartment = 4
 
         }
         public static Article ToArticle(this CreateArticleForm form)
@@ -44,7 +45,9 @@ namespace BLL.Mappers
                 price = entity.price,
                 link = entity.link,
                 description = entity.description,
-                UserId = entity.UsersID
+                UserId = entity.UsersID,
+                id = entity.Id
+                
                 
             };
         }

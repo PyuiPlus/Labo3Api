@@ -30,6 +30,7 @@ namespace DAL.Repositories
                     "@ArticleID)";
                 cmd.Parameters.AddWithValue("startDate", entity.startDate);
                 cmd.Parameters.AddWithValue("endDate", entity.endDate);
+                cmd.Parameters.AddWithValue("ArticleID", entity.ArticleID);
 
                 entity.Id = Convert.ToInt32(cmd.CustomScalar(ConnectionString));
 
@@ -52,6 +53,17 @@ namespace DAL.Repositories
         public IEnumerable<Agenda> GetAll()
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<Agenda> GetAllAgendaByArticleId(int articleId)
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.CommandText = "SELECT * FROM Agenda Where ArticleID = @articleId";
+                cmd.Parameters.AddWithValue("articleId", articleId);
+
+                return cmd.CustomReader(ConnectionString, x => DbMapper.ToAgenda(x));
+            }
         }
 
         public Agenda? GetById(int id)

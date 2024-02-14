@@ -10,6 +10,6 @@ namespace DAL.Interfaces
 {
     public interface IArticleRepository : IRepository<int, Article>
     {
-
+        IEnumerable<Article> GetAllIdUser(int id);
     }
 }

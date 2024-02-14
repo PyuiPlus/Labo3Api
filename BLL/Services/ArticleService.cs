@@ -44,6 +44,11 @@ namespace BLL.Services
             return _articleRepository.GetAll().Select(x => x.ToArticleDTO());
         }
 
+        public IEnumerable<ArticleDTO> GetAllByUserId(int userId)
+        {
+            return _articleRepository.GetAllIdUser(userId).Select(x => x.ToArticleDTO());
+        }
+
         public ArticleDTO GetById(int id)
         {
             return _articleRepository.GetById(id).ToArticleDTO();

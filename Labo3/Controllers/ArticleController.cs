@@ -32,6 +32,13 @@ namespace APILabo3.Controllers
             return article is not null ? Ok(article) : NotFound();
         }
 
+        [HttpGet("all/{id:int}")]
+
+        public ActionResult<IEnumerable<ArticleDTO>> GetAllByUserId(int id)
+        {
+            return Ok(_articleService.GetAllByUserId(id));
+        }
+
         [HttpPost]
         public ActionResult<ArticleDTO> Create(CreateArticleForm form)
         {

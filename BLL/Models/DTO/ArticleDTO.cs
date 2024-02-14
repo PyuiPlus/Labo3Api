@@ -8,6 +8,7 @@ namespace BLL.Models.DTO
 {
     public class ArticleDTO
     {
+        public int id { get; set; }
         public string title { get; set; }
         public string type { get; set; }
         public decimal price { get; set; }

@@ -16,5 +16,7 @@ namespace BLL.Iterfaces
         IEnumerable<ArticleDTO> GetAll();
         ArticleDTO GetById(int id);
         bool Update(Article article);
+
+        IEnumerable<ArticleDTO> GetAllByUserId(int userId);
     }
 }

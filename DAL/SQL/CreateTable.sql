@@ -11,7 +11,7 @@ birthdate DATE
 CREATE TABLE Article (
 Id INT PRIMARY KEY IDENTITY,
 title VARCHAR(50),
-type INT,
+type VARCHAR(50),
 price DECIMAL,
 link VARCHAR(MAX),
 description VARCHAR(255),

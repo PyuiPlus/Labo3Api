@@ -10,5 +10,7 @@ namespace DAL.Interfaces
 {
     public interface IAgendaRepository : IRepository<int, Agenda>
     {
+
+        IEnumerable<Agenda> GetAllAgendaByArticleId(int articleId);
     }
 }

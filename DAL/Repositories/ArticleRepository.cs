@@ -23,7 +23,7 @@ namespace DAL.Repositories
         {
             using (SqlCommand cmd = new SqlCommand())
             {
-                cmd.CommandText = "INSERT INTO Article OUTPUT inserted.Id VALUES(" +
+                cmd.CommandText = "INSERT INTO Article (title, type, price, link, description, UsersID)  OUTPUT inserted.Id VALUES(" +
                     "@title," +
                     "@type," +
                     "@price," +
@@ -61,6 +61,17 @@ namespace DAL.Repositories
             using (SqlCommand cmd = new SqlCommand())
             {
                 cmd.CommandText = "SELECT * FROM Article";
+
+                return cmd.CustomReader(ConnectionString, x => DbMapper.ToArticle(x));
+            }
+        }
+
+        public IEnumerable<Article> GetAllIdUser(int id)
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.CommandText = "SELECT * FROM Article where UsersID = @id";
+                cmd.Parameters.AddWithValue("id", id);
 
                 return cmd.CustomReader(ConnectionString, x => DbMapper.ToArticle(x));
             }
